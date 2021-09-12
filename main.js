@@ -1,9 +1,12 @@
+// querySelector
+var clearButton = document.querySelector('#clear-button')
+var image = document.querySelector('.image');
+var message = document.querySelector('.message');
+var radioAffirmation = document.querySelector('#affirmation');
 var radioMantra = document.querySelector('#mantra');
-var radioAffirmation = document.querySelector('#affirmation')
-var receiveMsgButton = document.querySelector('.receive-button')
-var message = document.querySelector('.message-display');
-var image = document.querySelector('.image')
-var message = document.querySelector('.message')
+var receiveMsgButton = document.querySelector('#receive-button');
+
+// Global Variables
 var affirmations = [
 'I forgive myself and set myself free.',
 'I believe I can be all that I want to be.',
@@ -18,7 +21,7 @@ var affirmations = [
 'Every day I am getting healthier and stronger.',
 'I honor my body by trusting the signals that it sends me.',
 'I manifest perfect health by making smart choices.',
-]
+];
 var mantras = [
 'Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.',
 'Don’t let yesterday take up too much of today.',
@@ -35,17 +38,24 @@ var mantras = [
 'The only constant is change.',
 'Onward and upward.',
 'I am the sky, the rest is weather.',
-]
+];
 
+// Event Listeners
 receiveMsgButton.addEventListener('click', displayMessage);
+clearButton.addEventListener('click', clearMessage);
 
+// Function and Event Handlers
 function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length)
+  return Math.floor(Math.random() * array.length);
 }
 
 function toggle(hide, show) {
   hide.classList.add('hidden');
   show.classList.remove('hidden');
+}
+
+function clearMessage() {
+  toggle(message, image);
 }
 
 function displayMessage(event) {
